@@ -1,0 +1,12 @@
+<launch>
+	<node name="stage" pkg="stage_ros" type="stageros"
+	      args="$(find lab2)/world/playground.world" />
+
+
+	<node name="perception" pkg="lab2" type="perception.py" output="screen">
+		<remap to="/base_pose_ground_truth" from="/robot_0/base_pose_ground_truth" />
+		<remap to="/base_scan" from="/robot_0/base_scan" />
+		<remap to="/cmd_vel" from="/robot_0/cmd_vel" />
+	</node>	
+	
+</launch>
